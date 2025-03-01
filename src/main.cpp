@@ -89,7 +89,7 @@ public:
 	int selectedGrassType = 0;
 
 	const std::vector<std::string> treeTypes = {
-		"spruce", "fir", "birch", "pine", "tropical", "tropical2", "palm", "coconut_palm"
+		"spruce"/*, "fir", "birch", "pine", "tropical", "tropical2", "palm", "coconut_palm"*/
 	};
 	const std::vector<std::string> grassTypes = {
 		"grasspatch", "grasspatch_medium", "grasspatch_large"
@@ -430,7 +430,7 @@ public:
 				float r = 0.0f;
 				worldPos.x += rndVal;// *2.0f - rndValB * 2.0f;
 				worldPos.z -= rndVal;// *2.0f - rndValB * 2.0f;
-				infiniteTerrain.getHeightAndRandomValue(worldPos, h, r);
+				//infiniteTerrain.getHeightAndRandomValue(worldPos, h, r);
 				if ((abs(h) <= heightMapSettings.waterPosition) || (abs(h) > 12.0f)) {
 					continue;
 				}
@@ -684,15 +684,15 @@ public:
 
 	void setObjectName(VkObjectType object_type, uint64_t object_handle, const char* object_name)
 	{
-		if (vkSetDebugUtilsObjectNameEXT == nullptr) {
-			vkSetDebugUtilsObjectNameEXT = reinterpret_cast<PFN_vkSetDebugUtilsObjectNameEXT>(vkGetInstanceProcAddr(instance, "vkSetDebugUtilsObjectNameEXT"));
-		}
+		//if (vkSetDebugUtilsObjectNameEXT == nullptr) {
+		//	vkSetDebugUtilsObjectNameEXT = reinterpret_cast<PFN_vkSetDebugUtilsObjectNameEXT>(vkGetInstanceProcAddr(instance, "vkSetDebugUtilsObjectNameEXT"));
+		//}
 
-		VkDebugUtilsObjectNameInfoEXT name_info = { VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT };
-		name_info.objectType = object_type;
-		name_info.objectHandle = object_handle;
-		name_info.pObjectName = object_name;
-		vkSetDebugUtilsObjectNameEXT(device, &name_info);
+		//VkDebugUtilsObjectNameInfoEXT name_info = { VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT };
+		//name_info.objectType = object_type;
+		//name_info.objectHandle = object_handle;
+		//name_info.pObjectName = object_name;
+		//vkSetDebugUtilsObjectNameEXT(device, &name_info);
 	}
 
 	// Setup the offscreen images for rendering reflection and refractions

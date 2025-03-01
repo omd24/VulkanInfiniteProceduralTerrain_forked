@@ -168,3 +168,12 @@ void InfiniteTerrain::update(float deltaTime) {
 		}
 	}
 }
+
+void getHeightAndRandomValue(const glm::vec3& worldPos, float& height, float& randomValue)
+{
+	// Simple height function: sine wave based on world position
+	height = 5.0f * sin(worldPos.x * 0.1f) * cos(worldPos.z * 0.1f);
+
+	// Random value based on a simple hash function
+	randomValue = glm::fract(sin(worldPos.x * 12.9898f + worldPos.z * 78.233f) * 43758.5453f);
+}

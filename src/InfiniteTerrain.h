@@ -34,4 +34,5 @@ public:
 	void updateChunks();
 	void clear();
 	void update(float deltaTime);
+	void getHeightAndRandomValue(const glm::vec3& worldPos, float& height, float& randomValue);
 };
